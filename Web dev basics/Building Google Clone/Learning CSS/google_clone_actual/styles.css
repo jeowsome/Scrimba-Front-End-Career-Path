@@ -10,11 +10,16 @@ body {
 }
 
 .btn {
-  margin-top: 30px;
+  margin: 30px 4px 0px;
   border: none;
   padding: 8px 16px;
   border-radius: 5px;
   font-size: 14px;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 .search-input {
