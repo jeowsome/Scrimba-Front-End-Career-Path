@@ -1,0 +1,32 @@
+body {
+  background: white;
+  text-align: center;
+}
+
+#google-logo {
+  width: 300px;
+  display: block;
+  margin: auto auto 15px;
+}
+
+.btn {
+  margin-top: 30px;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.search-input {
+  line-height: 24px;
+  padding: 10px 30px;
+  border: 1px solid #dfe1e5;
+  border-radius: 24px;
+  width: 400px;
+  display: block;
+  margin: auto;
+}
+
+.main {
+  margin-top: 100px;
+}
