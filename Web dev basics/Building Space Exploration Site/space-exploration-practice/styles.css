@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  color: #82a5ca;
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+}
+
+.hero {
+  background-image: url("images/galaxy.webp");
+  background-size: cover;
+  padding: 20px;
+}
+
+.apply-btn {
+  padding: 5px 10px;
+  font-weight: bold;
+  background: white;
+  border: none;
+  color: #82a5ca;
+}
+
+.underlined {
+  border-bottom: 4px solid white;
+}
+
+#spacex-logo {
+  width: 100px;
+}
+
+#exploration-txt {
+  text-shadow: 0 0 5px black;
+}
