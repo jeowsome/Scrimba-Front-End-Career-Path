@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  background: #f4f4f4;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+}
+
+#title {
+  font-size: 28px;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+#controller {
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#upper {
+  background: #6943ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#lower {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px;
+}
+
+.unit-card {
+  background: #ffffff;
+  width: 95%;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 20px 10px;
+}
+
+.card-title {
+  color: #5a537b;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.card-description {
+  color: #353535;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+#num-input,
+#converter-btn,
+#title {
+  margin: 15px;
+}
+
+#converter-btn {
+  color: #3d3d3d;
+  padding: 10px 30px;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  background: #ffffff;
+  border: none;
+}
+
+#num-input {
+  border: 2px solid #b295ff;
+  background: inherit;
+  border-radius: 5px;
+  height: 100px;
+  width: 150px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 58px;
+}
