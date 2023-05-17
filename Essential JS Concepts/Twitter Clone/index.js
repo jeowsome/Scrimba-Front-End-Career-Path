@@ -1,31 +1,34 @@
 import { tweetsData } from "./data.js";
+import { v4 as uuidv4 } from "https://jspm.dev/uuid";
 
-const tweetBtn = document.getElementById("tweet-btn");
 const tweetInput = document.getElementById("tweet-input");
 const feedEl = document.getElementById("feed");
-
-tweetBtn.onclick = () => {
-  console.log(getHTMLFeed());
-};
 
 document.onclick = (e) => {
   const {
     dataset: { reply, like, retweet },
+    id,
   } = e.target;
   if (like) {
     handleLikeClick(like);
+    render();
   } else if (retweet) {
     handleRetweetClick(retweet);
+    render();
+  } else if (id == "tweet-btn") {
+    handleTweetBtnClick();
+    render();
   }
-  render();
+
+  if (reply) {
+    handleReplyClick(reply);
+  }
 };
 
 function handleLikeClick(tweetId) {
   const [targetTweetObj] = tweetsData.filter((e) => e.uuid === tweetId);
   targetTweetObj.isLiked ? targetTweetObj.likes-- : targetTweetObj.likes++;
   targetTweetObj.isLiked = !targetTweetObj.isLiked;
-
-  console.log(targetTweetObj.likes);
 }
 
 function handleRetweetClick(tweetId) {
@@ -34,6 +37,31 @@ function handleRetweetClick(tweetId) {
     ? targetTweetObj.retweets--
     : targetTweetObj.retweets++;
   targetTweetObj.isRetweeted = !targetTweetObj.isRetweeted;
+}
+
+function handleReplyClick(replyId) {
+  let replyEl = document.getElementById(`replies-${replyId}`);
+
+  if (replyEl) {
+    replyEl.classList.toggle("hidden");
+  }
+}
+
+function handleTweetBtnClick() {
+  if (tweetInput.value) {
+    tweetsData.unshift({
+      handle: `@Jeowsome`,
+      profilePic: `images/scrimbalogo.png`,
+      likes: 0,
+      retweets: 0,
+      tweetText: tweetInput.value,
+      replies: [],
+      isLiked: false,
+      isRetweeted: false,
+      uuid: uuidv4(),
+    });
+    tweetInput.value = "";
+  }
 }
 
 function getHTMLFeed() {
@@ -75,7 +103,26 @@ function getHTMLFeed() {
             </div>   
         </div>            
     </div>
+</div>
+${
+  replies.length > 0
+    ? `<div id="replies-${uuid}" class="hidden">
+    ${replies
+      .map(
+        ({ handle, profilePic, tweetText }) => `<div class="tweet-reply">
+    <div class="tweet-inner">
+        <img src="${profilePic}" class="profile-pic">
+            <div>
+                <p class="handle">${handle}</p>
+                <p class="tweet-text">${tweetText}</p>
+            </div>
+        </div>
 </div>`
+      )
+      .join("")}
+</div>`
+    : ""
+}`
     )
     .join("");
 }
